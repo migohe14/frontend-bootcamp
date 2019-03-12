@@ -1,0 +1,24 @@
+h2 {
+    color: red;
+}
+section > div:first-of-type {
+    color: green;
+}
+
+.myList {
+    border: 5px solid green;
+}
+.myClass {
+    background-color: green;
+}
+
+.otherClass {
+    color: white;
+}
+
+#myId {
+    background-color: yellow;
+}
+section > div:last-of-type {
+    border: 5px solid pink;
+}
