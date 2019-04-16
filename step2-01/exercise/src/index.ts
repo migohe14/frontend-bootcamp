@@ -1,4 +1,6 @@
-// TODO: import the fib(n) function and the constant from './fibonacci.ts'
+import FibConst, { fib } from './fibonacci';
+import { Stack } from './stack';
+
 // import FibConst, {fib} from ...
 
 // TODO: import Stack from ...
@@ -9,19 +11,35 @@ console.log('hello world');
 // ---- Modules ----
 
 // TODO: log the result of fib(FibConst)
+console.log('fib(FibConst) is:', fib(FibConst));
 
 // ---- Types and Interfaces ----
 
 // TODO: define TrafficLight type
-// type TrafficLight = ???
+type TrafficLight = 'red' | 'green' | 'yellow';
 
 // TODO: define Car interface
-// interface Car { ??? }
-
+interface Car {
+  wheels: number;
+  color: string;
+  make: string;
+  model: string;
+}
 // TODO: create Car instance
-// const myCar: Car = { ??? }
-
+const myCar: Car = {
+  wheels: 4,
+  color: 'blue',
+  make: 'Citroen',
+  model: 'Xara'
+};
 // ---- Generics ----
+console.log('My car:', myCar);
+
+const myStack = new Stack<number>();
+myStack.push(1);
+myStack.push(2);
+myStack.push(3);
+console.log('Number on top of the stack:', myStack.pop());
 
 // TODO: Demonstrate the Stack
 // const myStack: Stack<number> = ???
@@ -40,22 +58,30 @@ const obj2 = {
   catcher: 'today'
 };
 
+const megaObj = { ...obj1, ...obj2 };
+
 // TODO: combine obj1 and obj2 into a single object megaObj using spread syntax
 // const megaObj = ???
 
 // TODO: use destructuring syntax to extract { first, second, catcher }
 
 // ---- Async / Await ----
-function makePromise() {
+function makePromise(): Promise<number> {
   return Promise.resolve(5);
 }
 
-// TODO: create a new async function
+async function getGreeting(name: string): Promise<string> {
+  return 'hello ' + name;
+}
 
 async function run() {
-  // TODO: call makePromise() using await syntax and log the results
-  // TODO: call your new async function
+  const result = await makePromise();
+  console.log('makePromise returned:', result);
+
+  const greeting = await getGreeting('Miguel');
+  console.log('greeting:', greeting);
 }
+
 
 run();
 
