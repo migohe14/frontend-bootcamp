@@ -2,6 +2,7 @@ import React from 'react';
 
 export class TodoListItem extends React.Component<any, any> {
   render() {
+    // destructuring
     const { label, completed } = this.props
     return (
       <li className="todo">
