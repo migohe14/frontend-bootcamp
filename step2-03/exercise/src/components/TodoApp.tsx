@@ -6,7 +6,7 @@ import { TodoList } from './TodoList';
 import { Store } from '../store';
 
 // TODO: Change me to another theme!
-import { TeamsCustomizations } from '@uifabric/theme-samples';
+import { FluentCustomizations } from '@uifabric/fluent-theme';
 
 let index = 0;
 
@@ -14,6 +14,35 @@ let index = 0;
 const className = mergeStyles({
   padding: 25,
   ...getTheme().effects.elevation4
+});
+
+import { loadTheme } from 'office-ui-fabric-react';
+
+loadTheme({
+  palette: {
+    themePrimary: '#597d98',
+    themeLighterAlt: '#f7f9fb',
+    themeLighter: '#dfe8ef',
+    themeLight: '#c5d4e0',
+    themeTertiary: '#92adc2',
+    themeSecondary: '#6a8ba5',
+    themeDarkAlt: '#51718a',
+    themeDark: '#456074',
+    themeDarker: '#334656',
+    neutralLighterAlt: '#d3d3d3',
+    neutralLighter: '#cfcfcf',
+    neutralLight: '#c7c7c7',
+    neutralQuaternaryAlt: '#b9b9b9',
+    neutralQuaternary: '#b1b1b1',
+    neutralTertiaryAlt: '#aaaaaa',
+    neutralTertiary: '#d7bdbd',
+    neutralSecondary: '#af8585',
+    neutralPrimaryAlt: '#8a5a5a',
+    neutralPrimary: '#7b4a4a',
+    neutralDark: '#5d3838',
+    black: '#452929',
+    white: '#dadada',
+  }
 });
 
 export class TodoApp extends React.Component<any, Store> {
@@ -27,7 +56,7 @@ export class TodoApp extends React.Component<any, Store> {
   render() {
     const { filter, todos } = this.state;
     return (
-      <Customizer {...TeamsCustomizations}>
+      <Customizer {...loadTheme}>
         <Stack horizontalAlign="center">
           <Stack style={{ width: 400 }} gap={25} className={className}>
             <TodoHeader addTodo={this._addTodo} setFilter={this._setFilter} filter={filter} />

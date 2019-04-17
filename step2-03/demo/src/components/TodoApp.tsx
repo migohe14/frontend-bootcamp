@@ -14,7 +14,7 @@ const className = mergeStyles({
 });
 
 // Uncomment to see loadTheme
-/*
+
 loadTheme({
   palette: {
     themePrimary: '#c41515',
@@ -41,7 +41,7 @@ loadTheme({
     white: '#dbb5b5'
   }
 });
-*/
+
 
 export class TodoApp extends React.Component<any, Store> {
   constructor(props) {
