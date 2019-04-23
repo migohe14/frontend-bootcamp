@@ -3,6 +3,7 @@ import { Stack, Text, Pivot, PivotItem, TextField, PrimaryButton } from 'office-
 import { FilterTypes } from '../store';
 import { actions } from '../actions';
 import { connect } from 'react-redux';
+import { Store } from '../store';
 
 // TODO: these ?'s after the keys of an interface makes it optional
 // and can be removed when you finished connecting this component
@@ -82,5 +83,18 @@ class TodoHeader extends React.Component<TodoHeaderProps, TodoHeaderState> {
     // HINT: look at what the component needed from the props interface
   })
 */
-const ConnectedTodoHeader = connect()(TodoHeader);
+const ConnectedTodoHeader = connect(
+  (state: Store) => ({
+    // TODO: mapping for state
+    todos: state.todos
+    // HINT: look at what the component needed from the props interface
+  }),
+  dispatch => ({
+    // TODO: mapping for dispatch actions
+    addTodo: (label) => dispatch(actions.addTodo(label)),
+    setFilter: filter => dispatch(actions.setFilter(filter))
+
+    // HINT: look at what the component needed from the props interface
+  })
+)(TodoHeader);
 export { ConnectedTodoHeader as TodoHeader };

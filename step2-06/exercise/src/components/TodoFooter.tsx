@@ -39,5 +39,16 @@ const TodoFooter = (props: TodoFooterProps) => {
     // HINT: look at what the component needed from the props interface
   })
 */
-const ConnectedTodoFooter = connect()(TodoFooter);
+const ConnectedTodoFooter = connect(
+  (state: Store) => ({
+    // TODO: mapping for state
+    todos: state.todos
+    // HINT: look at what the component needed from the props interface
+  }),
+  dispatch => ({
+    // TODO: mapping for dispatch actions
+    clear: () => dispatch(actions.clear()),
+    // HINT: look at what the component needed from the props interface
+  })
+)(TodoFooter);
 export { ConnectedTodoFooter as TodoFooter };

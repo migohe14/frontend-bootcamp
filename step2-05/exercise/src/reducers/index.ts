@@ -6,7 +6,7 @@ export const todosReducer = createReducer<Store['todos']>(
   {},
   {
     addTodo(state, action) {
-      // TODO: implement this reducer
+      state[action.id] = { label: action.label, completed: false };
     },
 
     remove(state, action) {
@@ -22,11 +22,11 @@ export const todosReducer = createReducer<Store['todos']>(
     },
 
     complete(state, action) {
-      // TODO: implement this reducer
+      state[action.id].completed = !state[action.id].completed;
     },
 
     edit(state, action) {
-      // TODO: implement this reducer
+      state[action.id].label = action.label;
     }
   }
 );
